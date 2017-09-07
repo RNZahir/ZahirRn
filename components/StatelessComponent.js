@@ -7,4 +7,13 @@ const StatelessComponent = () => (
     </View>
 )
 
-export default StatelessComponent
+const StatelessComponent2 = () => (
+    <View>
+      <Text>Hello RN from Stateless Component 2</Text>
+    </View>
+)
+
+export {
+  StatelessComponent,
+  StatelessComponent2
+}
