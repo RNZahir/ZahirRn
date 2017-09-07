@@ -7,7 +7,7 @@ export default class CarTire extends Component{
     return (
       <View>
         <Text>
-          Jumlah: "{count}"
+          Jumlah: "{this.props.count}"
         </Text>
       </View>
     )
