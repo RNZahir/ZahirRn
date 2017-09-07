@@ -1,18 +1,24 @@
-import React, {Component} from 'react'
-import RenderWithClass from './components/RenderWithClass'
-import {StatelessComponent, StatelessComponent2} from './components/StatelessComponent'
-import {View} from 'react-native'
+import React from 'react';
+import {View, Text} from 'react-native'
+import CarBody from './components/CarBody'
+import CarTire from './components/CarTire'
 
-export default class Main extends Component {
 
+class Car extends React.Component {
   render(){
     return (
-        <View>
-          <RenderWithClass/>
-          {/*<StatelessComponent/>*/}
-          {/*<StatelessComponent2/>*/}
-        </View>
+      <View>
+        <Text>Toyota</Text>
+
+        <CarBody
+          color="green"
+          screenGuard={1}
+        />
+
+        <CarTire count={4}/>
+      </View>
     )
   }
-
 }
+
+export default Car
