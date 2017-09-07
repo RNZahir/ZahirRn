@@ -1,24 +1,40 @@
-import React from 'react';
-import {View, Text} from 'react-native'
-import CarBody from './components/CarBody'
-import CarTire from './components/CarTire'
+import React, {Component} from 'react'
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet
+} from 'react-native'
 
+export default class Main extends Component{
 
-class Car extends React.Component {
+  handleShowText(){
+    console.log('show text')
+  }
+
   render(){
     return (
       <View>
-        <Text>Toyota</Text>
-
-        <CarBody
-          color="green"
-          screenGuard={1}
-        />
-
-        <CarTire count={4}/>
+        <TouchableOpacity
+          onPress={()=>this.handleShowText()}
+          style={styles.btn}
+        >
+          <Text style={styles.txt}>
+            This is Button
+          </Text>
+        </TouchableOpacity>
       </View>
     )
   }
+
 }
 
-export default Car
+const styles = StyleSheet.create({
+  btn: {
+    backgroundColor: 'red',
+    padding: 10
+  },
+  txt: {
+    color: '#FFF'
+  }
+})
