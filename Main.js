@@ -43,7 +43,7 @@ export default class Main extends Component {
 
           {/* LIST VIEW */}
           <View>
-            {this.os.map(os => <OsItem os={os}/>)}
+            {this.os.map(os => <OsItem key={os.name} os={os}/>)}
           </View>
 
         </ScrollView>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-export default (props) => (
+const OsItem = (props) => (
   <View style={styles.card}>
     <View style={styles.avatar}>
 
@@ -12,6 +12,12 @@ export default (props) => (
     </View>
   </View>
 )
+
+OsItem.propTypes = {
+  os: PropTypes.object.isRequired
+};
+
+export default OsItem;
 
 const styles = StyleSheet.create({
   card: {
