@@ -1,40 +1,71 @@
-import React, {Component} from 'react'
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet
-} from 'react-native'
+import React, {Component} from 'react';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 
-export default class Main extends Component{
+import OsItem from './components/OsItem';
 
-  handleShowText(){
-    console.log('show text')
-  }
+export default class Main extends Component {
 
-  render(){
+  os = [
+    {name: 'windows', year: 1990},
+    {name: 'apple', year: 1991},
+  ];
+
+  renderHeader(){
     return (
-      <View>
-        <TouchableOpacity
-          onPress={()=>this.handleShowText()}
-          style={styles.btn}
-        >
-          <Text style={styles.txt}>
-            This is Button
-          </Text>
-        </TouchableOpacity>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Title</Text>
       </View>
     )
   }
 
+  renderRow(os){
+    return (
+      <View style={styles.card}>
+        <View style={styles.avatar}>
+
+        </View>
+        <View style={{}}>
+          <Text style={styles.cardText}>{os.name}</Text>
+          <Text style={styles.cardText}>{os.year}</Text>
+        </View>
+      </View>
+    )
+  }
+
+  render(){
+    return (
+      <View style={styles.container}>
+
+        {/* HEADER */}
+        {this.renderHeader()}
+
+        <ScrollView>
+
+          {/* LIST VIEW */}
+          <View>
+            {this.os.map(os => <OsItem os={os}/>)}
+          </View>
+
+        </ScrollView>
+
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
-  btn: {
-    backgroundColor: 'red',
-    padding: 10
+  container: {
+    flex: 1,
+    backgroundColor:'gray',
   },
-  txt: {
-    color: '#FFF'
-  }
-})
+  header: {
+    alignItems: 'center',
+    backgroundColor: 'pink',
+    padding: 20
+  },
+  headerText: {
+    color: '#FFF',
+    fontSize: 25,
+    fontWeight: "bold"
+  },
+});
